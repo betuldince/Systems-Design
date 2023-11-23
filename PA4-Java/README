@@ -1,0 +1,87 @@
+Name: Betul Dincer
+USC NetID: 1816821532
+CS 455 PA4
+Fall 2023
+
+----------------------------------------------
+CERTIFY IT'S YOUR WORK
+
+"I certify that the work submitted for this assignment does not
+violate USC's student conduct code.  In particular, the work is my
+own, not a collaboration, and does not involve code created by other
+people or AI software, except for the the resources explicitly mentioned
+in the CS 455 Course Syllabus.  And I did not share my solution or part
+of it with other students in the course."
+
+Initial below to "sign" the above statement:
+
+B.D.
+----------------------------------------------
+ACKNOWLEDGE ANY OUTSIDE SOURCES
+
+List here any code you submitted for this assignment that was written
+with significant help of a course staff member, or code used from the
+textbook.  Be specific about what methods or algorithms are involved,
+and what sections of the textbook are involved (if applicable): [you do
+not need to list any of the code that we wrote for the assignment,
+i.e., the contents of the starter files for the assignment]
+
+
+No bugs
+----------------------------------------------
+KNOWN BUGS or LIMITATIONS:
+
+Class Design
+
+The AnagramDictionary class efficiently finds anagrams of a given string by organizing dictionary words based on their letter multiset. It both creates the anagram dictionary as well as it provides function to get anagrams of the  given word.
+
+Dictionary class is used to iterate over and save the dictionary to check whether it has duplicated words. If so, it throws custom exception.
+
+IllegalDictionaryException class is for throwing custom exception.
+
+Rack class is for creating all the possible multisets from given rack word.
+
+ScoreTable class is used for calculating the scores of each words we can do from given rack.
+
+WordFinder class is used for running the application with given dictionary. It takes I/O from the user.  It terminates program if it is prompted or throws exceptions for specified cases.
+
+WordScore class used for holding each word that can be made from particular rack and its score. It also has Comparable interface to sort the elements.
+
+WordsBuilder class is used for taking all the subsets of the given rack and finding their anagrams from the angram dictionary. For the words that can be made from rack and that is in the Dictionary are used to create WordScore objects. All the WordScore objects are stored in ArrayList to be sorted. WordsBuilder class also has print functionality to print all the word&score pairs with given format.
+
+Algorithms
+
+The main algorithm I used for this assignment aligns with the second approach. I preprocessed the dictionary in a way that I grouped the words by the set of letters each one contains. Then, I get all the subsets of the given rack. Finally, I got all the subsets from the rack and I added all the words from the dictionary that has the same letters. 
+
+The other algorithm I used was sorting the letters of the rack for efficient generation of all subsets of the rack. By sorting, it was easier to find all the unique letters and their muliplicities which is used in subset generation.
+
+
+Structures
+For the AnagramDictionary, I used HashMap to store the word given and the List of strings that are anagram to this word which is called “anagMap”. The word given is a key and corresponding List of strings is the anagrams.
+
+For DuplicateChecker, I used HashSet of strings to store the words in dictionary, I called it “words”. If the set already contains the value, it throws exception.
+
+For Rack, I used ArrayList of string to store all the subsets of the given rack.  I called this ArrayList as “ret”.
+
+For ScoreTable, I used int array to hold the value of each letter. It is called “values”.
+
+For each rack subset and corresponding score value, I created WordScore class with given parameters. WordScore class also implements Comparable interface to sort WordScores.
+
+In WordsBuilder class, the rack as well as all its subsets are created and stored in ArrayList. It is called “subsets”.
+
+For each subset of rack, we get anagrams of each value which is a ArrayList. I didn’t create object for this part, instead I put it directly to “anagList”. Hence, anagList stored all of them in ArrayList of ArrayList. Then, I iterated over every string in anagList, to create WordScore object with corresponding string values and their scores. So that, I was able to call Collection’s sort method on them.
+
+----------------------------------------------
+DESCRIPTION OF YOUR CLASS DESIGN AND ALGORITHMS AND DATA STRUCTURES USED:
+
+
+To run with default dictionary(sowpods.txt):java WordFinder. You can also input other dictionaries as arguments.
+----------------------------------------------
+ANY OTHER NOTES FOR THE GRADER:
+
+
+
+
+
+
+
